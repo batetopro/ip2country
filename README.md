@@ -11,5 +11,5 @@ create a database with db.sql, fill settings for db in 	app.settings
 >> invoke download
 
 ## Server
->> inoke server
+>> invoke server
 
