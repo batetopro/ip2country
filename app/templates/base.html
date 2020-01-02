@@ -1,0 +1,28 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - my.ip2country</title>
+      {% else %}
+      <title>Welcome to my.ip2country</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>
+            my.ip2country:
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('country') }}">Country</a>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </body>
+</html>

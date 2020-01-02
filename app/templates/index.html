@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    h1
+    {
+        text-align: center;
+        display: block;
+    }
+</style>
+
+<h1>Hi, {{ user.ip }} ({{ user.ip_int }}) from {{ user.country }}!</h1>
+
+{% endblock %}
