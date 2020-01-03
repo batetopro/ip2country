@@ -17,4 +17,5 @@ def index():
 
 @app.route('/country')
 def country():
-    return ip2country(request.remote_addr)
+    ip = request.args.get('ip', default=request.remote_addr, type=str)
+    return ip2country(ip)

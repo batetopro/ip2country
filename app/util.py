@@ -17,7 +17,7 @@ def ip2country(ip):
     cursor = db.cursor()
 
     value = ip2int(ip)
-    sql = 'SELECT country FROM ip2country WHERE `left` >= {0} AND `right` <= {1}'.format(value, value)
+    sql = 'SELECT country FROM ip2country WHERE `left` <= {0} AND {1} <= `right`'.format(value, value)
 
     cursor.execute(sql)
 
@@ -27,7 +27,7 @@ def ip2country(ip):
     if row is None:
         return 'XX'
 
-    return row[0]
+    return row['country']
 
 
 def get_connection():
