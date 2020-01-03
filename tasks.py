@@ -16,7 +16,7 @@ def download(c):
     download_path = 'country.db.gz'
     target_path = 'country.csv'
 
-    db = get_connection()
+    connection = get_connection()
 
     r = requests.get(url, verify=False, stream=True)
 
@@ -29,41 +29,38 @@ def download(c):
 
     os.unlink(download_path)
 
-    cursor = db.cursor()
+    with connection.cursor() as cursor:
+        cursor.execute('DELETE FROM ip2country')
 
-    cursor.execute('DELETE FROM ip2country')
+        with open(target_path, "r") as file:
 
-    with open(target_path, "r") as file:
+            page = []
 
-        page = []
+            while True:
+                line = file.readline().strip()
+                if len(line) == 0:
+                    break
 
-        while True:
-            line = file.readline().strip()
-            if len(line) == 0:
-                break
+                parts = line.upper().split(" ")
 
-            parts = line.upper().split(" ")
+                parts[0] = ip2int(parts[0])
+                parts[1] = ip2int(parts[1])
 
-            parts[0] = ip2int(parts[0])
-            parts[1] = ip2int(parts[1])
+                page.append("({0}, {1}, '{2}')".format(*parts))
 
-            page.append("({0}, {1}, '{2}')".format(*parts))
+                if len(page) > 6000:
+                    sql = "INSERT INTO ip2country(`left`, `right`, country) VALUES " + ','.join(page)
+                    cursor.execute(sql)
+                    page = []
 
-            if len(page) > 6000:
+            if len(page) > 0:
                 sql = "INSERT INTO ip2country(`left`, `right`, country) VALUES " + ','.join(page)
                 cursor.execute(sql)
-                page = []
-
-        if len(page) > 0:
-            sql = "INSERT INTO ip2country(`left`, `right`, country) VALUES " + ','.join(page)
-            cursor.execute(sql)
-
-        cursor.execute('COMMIT')
 
     os.unlink(target_path)
 
-    cursor.close()
-    db.close()
+    connection.commit()
+    connection.close()
 
 
 @task

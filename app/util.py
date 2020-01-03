@@ -1,6 +1,6 @@
 import socket
 import struct
-import MySQLdb
+import pymysql
 from app.settings import Settings
 
 
@@ -29,10 +29,13 @@ def ip2country(ip):
 
     return row[0]
 
+
 def get_connection():
-    return MySQLdb.connect(
-        Settings.DB['HOST'],
-        Settings.DB['USER'],
-        Settings.DB['PASSWORD'],
-        Settings.DB['BASE']
+    return pymysql.connect(
+        host=Settings.DB['HOST'],
+        user=Settings.DB['USER'],
+        password=Settings.DB['PASSWORD'],
+        db=Settings.DB['BASE'],
+        charset='utf8mb4',
+        cursorclass=pymysql.cursors.DictCursor
     )
