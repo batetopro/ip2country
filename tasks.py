@@ -7,6 +7,7 @@ import gzip
 from invoke import task
 import requests
 
+from app.settings import Settings
 from app.util import get_connection, ip2int
 
 
@@ -66,4 +67,8 @@ def download(c):
 @task
 def server(c):
     from app import app
-    app.run()
+    app.run(
+        debug=Settings.DEBUG,
+        host=Settings.HOST,
+        port=Settings.PORT
+    )

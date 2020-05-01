@@ -15,6 +15,7 @@ class Settings(object):
         BASE=os.environ.get('DATABASE_BASE') or "ip2country",
     )
 
-
-
+    DEBUG = False
+    HOST = '127.0.0.1'
+    PORT = 5001
 
