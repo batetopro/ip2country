@@ -2,14 +2,14 @@
 
 ## Install
 
->> pip install -r requirements
+> pip install -r requirements
 
 create a database with db.sql, fill settings for db in 	app.settings
 
 
 ## Download
->> invoke download
+> invoke download
 
 ## Server
->> invoke server
+> invoke server
 

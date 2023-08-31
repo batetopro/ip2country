@@ -1,0 +1,30 @@
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249] [2023-08-31 22:25:01,818] ERROR in app: Exception on / [GET]\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249] Traceback (most recent call last):\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249]   File "C:\\Users\\Icaka\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages\\flask\\app.py", line 2529, in wsgi_app\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249]     response = self.full_dispatch_request()\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249]   File "C:\\Users\\Icaka\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages\\flask\\app.py", line 1825, in full_dispatch_request\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249]     rv = self.handle_user_exception(e)\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249]   File "C:\\Users\\Icaka\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages\\flask\\app.py", line 1823, in full_dispatch_request\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249]     rv = self.dispatch_request()\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249]   File "C:\\Users\\Icaka\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages\\flask\\app.py", line 1799, in dispatch_request\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249]     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249]   File "C:\\Arbeitplatz\\ip2country\\app\\routes.py", line 12, in index\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249]     'ip_int': CountryRange.ip2int(request.remote_addr),\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249]   File "C:\\Arbeitplatz\\ip2country\\app\\models.py", line 20, in ip2int\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249]     return struct.unpack("!I", socket.inet_aton(addr))[0]\r
+[Thu Aug 31 22:25:01.819361 2023] [wsgi:error] [pid 9528:tid 2080] [client ::1:60249] OSError: illegal IP address string passed to inet_aton\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264] [2023-08-31 22:26:37,534] ERROR in app: Exception on / [GET]\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264] Traceback (most recent call last):\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264]   File "C:\\Users\\Icaka\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages\\flask\\app.py", line 2529, in wsgi_app\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264]     response = self.full_dispatch_request()\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264]   File "C:\\Users\\Icaka\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages\\flask\\app.py", line 1825, in full_dispatch_request\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264]     rv = self.handle_user_exception(e)\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264]   File "C:\\Users\\Icaka\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages\\flask\\app.py", line 1823, in full_dispatch_request\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264]     rv = self.dispatch_request()\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264]   File "C:\\Users\\Icaka\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages\\flask\\app.py", line 1799, in dispatch_request\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264]     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264]   File "C:\\Arbeitplatz\\ip2country\\app\\routes.py", line 12, in index\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264]     'ip_int': CountryRange.ip2int(request.remote_addr),\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264]   File "C:\\Arbeitplatz\\ip2country\\app\\models.py", line 20, in ip2int\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264]     return struct.unpack("!I", socket.inet_aton(addr))[0]\r
+[Thu Aug 31 22:26:37.535125 2023] [wsgi:error] [pid 20024:tid 2068] [client ::1:60264] OSError: illegal IP address string passed to inet_aton\r

@@ -2,3 +2,5 @@
 /.idea
 /venv
 /app/settings.py
+/migrations
+/.venv

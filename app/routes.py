@@ -1,21 +1,25 @@
 from flask import render_template, request
-from app.util import ip2country, ip2int
+
+
 from app import app
+from app.models import CountryRange
 
 
 @app.route('/')
-@app.route('/index')
 def index():
+    if request.remote_addr == "::1":
+        request.remote_addr = "127.0.0.1"
+
     user = {
-        'username': 'Hristo',
         'ip': request.remote_addr,
-        'ip_int': ip2int(request.remote_addr),
-        'country': ip2country(request.remote_addr),
+        'ip_int': CountryRange.ip2int(request.remote_addr),
+        'country': CountryRange.convert_ip(request.remote_addr),
     }
+
     return render_template('index.html', title='Home', user=user)
 
 
 @app.route('/country')
 def country():
     ip = request.args.get('ip', default=request.remote_addr, type=str)
-    return ip2country(ip)
+    return CountryRange.convert_ip(ip)
