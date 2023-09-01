@@ -29,7 +29,7 @@ class CountryRange(db.Model):
     @classmethod
     def convert_ip(cls, addr):
         value = cls.ip2int(addr)
-        check = CountryRange.query.filter(CountryRange.left <= value).filter(CountryRange.right <= value).first()
+        check = CountryRange.query.filter(CountryRange.left <= value).filter(CountryRange.right >= value).first()
         if not check:
             return 'xx'
         return check.country
